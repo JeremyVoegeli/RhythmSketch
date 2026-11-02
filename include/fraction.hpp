@@ -28,8 +28,8 @@ public:
 
     //simplifies the fraction
     void simplify(){
-        int gcd = std::gcd(numerator, denominator);
-        numerator /= gcd;
-        denominator /= gcd;
+        int greatestCommonDivisor = std::gcd(numerator, denominator);
+        numerator /= greatestCommonDivisor;
+        denominator /= greatestCommonDivisor;
     }
 };
