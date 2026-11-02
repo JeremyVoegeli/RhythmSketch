@@ -2,7 +2,7 @@
 #include "fraction.hpp"
 
 int main(){
-    Fraction f(2, 10);
+    Fraction f(2, 0);
 
     f.simplify();
     std::cout << f << std::endl;
