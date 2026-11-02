@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <numeric>
+#include <stdexcept>
 
 class Fraction{
 public:
@@ -18,6 +19,11 @@ public:
     Fraction(int n, int d){
         numerator = n;
         denominator = d;
+
+        //check for 0 denominator
+        if (denominator == 0){
+            throw std::invalid_argument("Error: Cannot have a 0 denominator");
+        }
     }
 
     //implements the << operator (friend function because otherwise, "this" would be implied as first param, can only have 2 params)
