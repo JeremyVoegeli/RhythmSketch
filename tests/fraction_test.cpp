@@ -50,3 +50,7 @@ TEST(FractionTest, SimplifyFunction){
     EXPECT_EQ(f4.numerator, 4);
     EXPECT_EQ(f4.denominator, 3);
 }
+
+TEST(FractionTest, NonZeroDenominatorCheck){
+    ASSERT_THROW(Fraction f(1, 0), std::invalid_argument);
+}
