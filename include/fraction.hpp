@@ -31,5 +31,10 @@ public:
         int greatestCommonDivisor = std::gcd(numerator, denominator);
         numerator /= greatestCommonDivisor;
         denominator /= greatestCommonDivisor;
+
+        if (numerator < 0 && denominator < 0){
+            numerator *= -1;
+            denominator *= -1;
+        }
     }
 };
