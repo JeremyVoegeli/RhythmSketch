@@ -39,6 +39,10 @@ public:
         duration = d;
         sticking = s;
         type = t;
+
+        if (t == NoteType::rest) {
+            sticking = Sticking::space;
+        }
     }
 
     friend std::ostream& operator<<(std::ostream& os, const Note& n){
