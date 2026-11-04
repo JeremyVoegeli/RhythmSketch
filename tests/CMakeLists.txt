@@ -1,10 +1,13 @@
-add_executable(run_tests fraction_test.cpp)
+add_executable(run_all_tests 
+    test_fraction_class.cpp
+    test_note_class.cpp
+)
 
-target_link_libraries(run_tests
+target_link_libraries(run_all_tests
     PRIVATE
         gtest_main
-        fraction
+        headers
 )
 
 include(GoogleTest)
-gtest_discover_tests(run_tests)
+gtest_discover_tests(run_all_tests)

@@ -8,12 +8,12 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #define a library with a header-only file
-add_library(fraction INTERFACE)
-target_include_directories(fraction INTERFACE include/)
+add_library(headers INTERFACE)
+target_include_directories(headers INTERFACE include/)
 
 #define main executable
 add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE fraction) #link library to main executable
+target_link_libraries(main PRIVATE headers) #link library to main executable
 
 # ---------- TESTING SETUP ----------
 option(BUILD_TESTING "build the testing suite" ON)
