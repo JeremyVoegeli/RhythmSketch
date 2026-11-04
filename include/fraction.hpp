@@ -26,6 +26,10 @@ public:
         }
     }
 
+    bool operator==(const Fraction& other) const {
+        return (numerator == other.numerator && denominator == other.denominator);
+    }
+
     //implements the << operator (friend function because otherwise, "this" would be implied as first param, can only have 2 params)
     friend std::ostream& operator<<(std::ostream& os, const Fraction& f){
         os << f.numerator << "/" << f.denominator;
