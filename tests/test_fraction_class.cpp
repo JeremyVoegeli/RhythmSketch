@@ -70,3 +70,15 @@ TEST(FractionTest, TestStreamInsertionOperator){
     ss << f2;
     EXPECT_EQ(ss.str(), "1/6");
 }
+
+TEST(FractionTest, TestAdditionAssignmentOperator){
+    Fraction f(1, 4);
+    f += Fraction(1, 4);
+    EXPECT_EQ(f, Fraction(1, 2));
+
+    f += Fraction(1, 4);
+    EXPECT_EQ(f, Fraction(3, 4));
+
+    f += Fraction(1, 5);
+    EXPECT_EQ(f, Fraction(19, 20));
+}

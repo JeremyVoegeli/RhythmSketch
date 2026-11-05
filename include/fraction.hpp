@@ -43,6 +43,8 @@ public:
         int otherModifier = lowestCommonMultiple / other.denominator;
         numerator += other.numerator * otherModifier;
 
+        this->simplify();
+
         return *this;
     }
 
