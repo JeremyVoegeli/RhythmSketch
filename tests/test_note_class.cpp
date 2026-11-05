@@ -1,5 +1,6 @@
 #include "note.hpp"
 #include <gtest/gtest.h>
+#include <sstream>
 
 TEST(NoteTest, TestConstructor){
     Note n1(
@@ -21,4 +22,29 @@ TEST(NoteTest, TestConstructor){
     EXPECT_EQ(n2.duration, Fraction(1, 8));
     EXPECT_EQ(n2.sticking, Sticking::space);
     EXPECT_EQ(n2.type, NoteType::rest);
+}
+
+TEST(NoteTest, TestStreamInsertionOperator){
+    Note n1(
+        Fraction(1, 4),
+        Sticking::L,
+        NoteType::note
+    );
+
+    std::stringstream ss;
+    ss << n1;
+
+    EXPECT_EQ(ss.str(), "1/4 note (L)");
+
+    ss.str(""); //clears the value from the SS
+
+    Note n2(
+        Fraction(1, 8),
+        Sticking::R,
+        NoteType::rest
+    );
+
+    ss << n2;
+
+    EXPECT_EQ(ss.str(), "1/8 note rest");
 }
