@@ -1,5 +1,6 @@
 #include "fraction.hpp"
 #include <gtest/gtest.h>
+#include <sstream>
 
 TEST(FractionTest, PositiveNums){
     Fraction f(1, 2);
@@ -53,4 +54,19 @@ TEST(FractionTest, SimplifyFunction){
 
 TEST(FractionTest, NonZeroDenominatorCheck){
     ASSERT_THROW(Fraction f(1, 0), std::invalid_argument);
+}
+
+TEST(FractionTest, TestStreamInsertionOperator){
+    std::stringstream ss;
+    Fraction f1(2, 3);
+
+    ss << f1;
+    EXPECT_EQ(ss.str(), "2/3");
+
+    ss.str(""); //clears string stream buffer
+
+    Fraction f2(1, 6);
+
+    ss << f2;
+    EXPECT_EQ(ss.str(), "1/6");
 }
