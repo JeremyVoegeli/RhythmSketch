@@ -30,6 +30,22 @@ public:
         return (numerator == other.numerator && denominator == other.denominator);
     }
 
+    Fraction& operator+=(const Fraction& other){
+        //Find lowest common multiple
+        int lowestCommonMultiple = std::lcm(denominator, other.denominator);
+
+        //Multiply this.fraction to get denominator as LCM
+        int thisModifier = lowestCommonMultiple / denominator;
+        numerator *= thisModifier;
+        denominator *= thisModifier;
+
+        //Multiply other.fraction to get denominator as LCM, add numerator to this.numerator
+        int otherModifier = lowestCommonMultiple / other.denominator;
+        numerator += other.numerator * otherModifier;
+
+        return *this;
+    }
+
     //implements the << operator (friend function because otherwise, "this" would be implied as first param, can only have 2 params)
     friend std::ostream& operator<<(std::ostream& os, const Fraction& f){
         os << f.numerator << "/" << f.denominator;
