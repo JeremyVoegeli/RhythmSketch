@@ -48,6 +48,11 @@ public:
         return *this;
     }
 
+    friend Fraction operator+(Fraction lhs, const Fraction& rhs){
+        lhs += rhs;
+        return lhs;
+    }
+
     //implements the << operator (friend function because otherwise, "this" would be implied as first param, can only have 2 params)
     friend std::ostream& operator<<(std::ostream& os, const Fraction& f){
         os << f.numerator << "/" << f.denominator;
