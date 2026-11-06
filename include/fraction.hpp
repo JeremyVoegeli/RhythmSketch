@@ -34,6 +34,8 @@ public:
 
     friend bool operator>(const Fraction& lhs, const Fraction& rhs);
 
+    friend bool operator<(const Fraction& lhs, const Fraction& rhs);
+
     friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
 
     //simplifies the fraction
