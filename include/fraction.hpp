@@ -26,48 +26,16 @@ public:
         }
     }
 
-    bool operator==(const Fraction& other) const {
-        return (numerator == other.numerator && denominator == other.denominator);
-    }
+    bool operator==(const Fraction& other) const;
 
-    Fraction& operator+=(const Fraction& other){
-        //Find lowest common multiple
-        int lowestCommonMultiple = std::lcm(denominator, other.denominator);
+    Fraction& operator+=(const Fraction& other);
 
-        //Multiply this.fraction to get denominator as LCM
-        int thisModifier = lowestCommonMultiple / denominator;
-        numerator *= thisModifier;
-        denominator *= thisModifier;
+    friend Fraction operator+(Fraction lhs, const Fraction& rhs);
 
-        //Multiply other.fraction to get denominator as LCM, add numerator to this.numerator
-        int otherModifier = lowestCommonMultiple / other.denominator;
-        numerator += other.numerator * otherModifier;
+    friend bool operator>(const Fraction& lhs, const Fraction& rhs);
 
-        this->simplify();
-
-        return *this;
-    }
-
-    friend Fraction operator+(Fraction lhs, const Fraction& rhs){
-        lhs += rhs;
-        return lhs;
-    }
-
-    //implements the << operator (friend function because otherwise, "this" would be implied as first param, can only have 2 params)
-    friend std::ostream& operator<<(std::ostream& os, const Fraction& f){
-        os << f.numerator << "/" << f.denominator;
-        return os;
-    }
+    friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
 
     //simplifies the fraction
-    void simplify(){
-        int greatestCommonDivisor = std::gcd(numerator, denominator);
-        numerator /= greatestCommonDivisor;
-        denominator /= greatestCommonDivisor;
-
-        if (numerator < 0 && denominator < 0){
-            numerator *= -1;
-            denominator *= -1;
-        }
-    }
+    void simplify();
 };
