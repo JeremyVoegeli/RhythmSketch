@@ -28,7 +28,15 @@ Fraction operator+(Fraction lhs, const Fraction& rhs){
 }
 
 bool operator>(const Fraction& lhs, const Fraction& rhs){
+    //find the least common multiple between both fractions
+    int leastCommonMultiple = std::lcm(lhs.denominator, rhs.denominator);
 
+    //Find the numerators of both fractions once multiplied by the LCM
+    int lhsCommonNumerator = lhs.numerator * leastCommonMultiple;
+    int rhsCommonNumerator = rhs.numerator * leastCommonMultiple;
+
+    //Compare numerators
+    return (lhsCommonNumerator > rhsCommonNumerator);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fraction& f){
