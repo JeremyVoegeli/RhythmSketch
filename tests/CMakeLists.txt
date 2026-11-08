@@ -6,7 +6,7 @@ add_executable(run_all_tests
 target_link_libraries(run_all_tests
     PRIVATE
         gtest_main
-        headers
+        main_lib
 )
 
 include(GoogleTest)

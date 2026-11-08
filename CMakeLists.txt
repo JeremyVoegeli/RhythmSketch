@@ -7,13 +7,15 @@ project(RhythmSketch CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#define a library with a header-only file
-add_library(headers INTERFACE)
-target_include_directories(headers INTERFACE include/)
+#establish core library of .cpp functions (except main.cpp)
+add_library(main_lib
+    src/fraction.cpp
+)
 
-#define main executable
+target_include_directories(main_lib PUBLIC include/)
+
 add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE headers) #link library to main executable
+target_link_libraries(main PRIVATE main_lib)
 
 # ---------- TESTING SETUP ----------
 option(BUILD_TESTING "build the testing suite" ON)
