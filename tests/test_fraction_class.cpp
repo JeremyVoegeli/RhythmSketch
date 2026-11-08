@@ -104,3 +104,15 @@ TEST (FractionOperators, TestBinaryAdditionOperator){
     Fraction sum4 = f7 + f8;
     EXPECT_EQ(sum4, Fraction(134, 187));
 }
+
+TEST (FractionOperators, TestSubtractionAssignmentOperator){
+    Fraction f(5, 8);
+    f -= Fraction(1, 4);
+    EXPECT_EQ(f, Fraction(3, 8));
+
+    f -= Fraction(3, 16);
+    EXPECT_EQ(f, Fraction(3, 16));
+
+    f -= Fraction(5, 26);
+    EXPECT_EQ(f, Fraction(-1, 208));
+}
