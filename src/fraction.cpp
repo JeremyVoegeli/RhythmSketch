@@ -27,6 +27,23 @@ Fraction operator+(Fraction lhs, const Fraction& rhs){
     return lhs;
 }
 
+Fraction& Fraction::operator-=(const Fraction& other){
+    //Find lowest common multiple
+    int lowestCommonMultiple = std::lcm(denominator, other.denominator);
+
+    //multiply this to get denominator as LCM
+    int thisModifier = lowestCommonMultiple / denominator;
+    numerator *= thisModifier;
+    denominator *= thisModifier;
+
+    //Multiply other.fraction to get denominator as LCM add subtract numerators
+    int otherModifier = lowestCommonMultiple / other.denominator;
+    numerator -= other.numerator * otherModifier;
+
+    this->simplify();
+    return *this;
+}
+
 bool operator>(const Fraction& lhs, const Fraction& rhs){
     //find the least common multiple between both fractions
     int leastCommonMultiple = std::lcm(lhs.denominator, rhs.denominator);
