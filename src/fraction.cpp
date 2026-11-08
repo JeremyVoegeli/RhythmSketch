@@ -6,18 +6,21 @@ bool Fraction::operator==(const Fraction& other) const {
 
 Fraction& Fraction::operator+=(const Fraction& other){
     //Find lowest common multiple
-    int lowestCommonMultiple = std::lcm(denominator, other.denominator);
+    int leastCommonMultiple = std::lcm(denominator, other.denominator);
 
-    //Multiply this and other fractions to get common denominator in LCM
-    int thisModifier = lowestCommonMultiple / denominator;
-    *this *= Fraction(thisModifier, thisModifier);
+    //modify this.fraction to have a denominator = LCM, get numerator when this is done
+    int thisModifier = leastCommonMultiple / denominator;
+    int thisNumeratorModified = numerator * thisModifier;
 
-    //find value of other.numerator after modified for LCM, add to this.numerator
-    int otherModifier = lowestCommonMultiple / other.denominator;
-    numerator += other.numerator * otherModifier;
+    //modify other.fraction to have a denominator = LCM, get numerator when this is done
+    int otherModifier = leastCommonMultiple / other.denominator;
+    int otherNumeratorModified = other.numerator * otherModifier;
+
+    //sum modified numerators together, set denominator to LCM
+    numerator = thisNumeratorModified + otherNumeratorModified;
+    denominator = leastCommonMultiple;
 
     this->simplify();
-
     return *this;
 }
 
