@@ -8,12 +8,11 @@ Fraction& Fraction::operator+=(const Fraction& other){
     //Find lowest common multiple
     int lowestCommonMultiple = std::lcm(denominator, other.denominator);
 
-    //Multiply this.fraction to get denominator as LCM
+    //Multiply this and other fractions to get common denominator in LCM
     int thisModifier = lowestCommonMultiple / denominator;
-    numerator *= thisModifier;
-    denominator *= thisModifier;
+    *this *= Fraction(thisModifier, thisModifier);
 
-    //Multiply other.fraction to get denominator as LCM, add numerator to this.numerator
+    //find value of other.numerator after modified for LCM, add to this.numerator
     int otherModifier = lowestCommonMultiple / other.denominator;
     numerator += other.numerator * otherModifier;
 
@@ -31,14 +30,14 @@ Fraction& Fraction::operator-=(const Fraction& other){
     //Find lowest common multiple
     int lowestCommonMultiple = std::lcm(denominator, other.denominator);
 
-    //multiply this to get denominator as LCM
+    //Multiply this and other fractions to get common denominator in LCM
     int thisModifier = lowestCommonMultiple / denominator;
-    numerator *= thisModifier;
-    denominator *= thisModifier;
+    *this *= Fraction(thisModifier, thisModifier);
 
-    //Multiply other.fraction to get denominator as LCM add subtract numerators
+    //find value of other.numerator after modified for LCM, add to this.numerator
     int otherModifier = lowestCommonMultiple / other.denominator;
     numerator -= other.numerator * otherModifier;
+
 
     this->simplify();
     return *this;
