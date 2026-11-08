@@ -61,6 +61,14 @@ bool operator>(const Fraction& lhs, const Fraction& rhs){
     return (lhsCommonNumerator > rhsCommonNumerator);
 }
 
+Fraction& Fraction::operator*=(const Fraction& other){
+    numerator *= other.numerator;
+    denominator *= other.denominator;
+
+    this->simplify();
+    return *this;
+}
+
 bool operator<(const Fraction& lhs, const Fraction& rhs){
     //find the least common multiple between both fractions
     int leastCommonMultiple = std::lcm(lhs.denominator, rhs.denominator);
