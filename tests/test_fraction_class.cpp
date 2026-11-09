@@ -73,6 +73,7 @@ TEST(FractionOperators, TestStreamInsertionOperator){
 
 TEST(FractionOperators, TestAdditionAssignmentOperator){
     Fraction f(1, 4);
+
     f += Fraction(1, 4);
     EXPECT_EQ(f, Fraction(1, 2));
 
@@ -103,6 +104,7 @@ TEST (FractionOperators, TestBinaryAdditionOperator){
 
 TEST (FractionOperators, TestSubtractionAssignmentOperator){
     Fraction f(5, 8);
+
     f -= Fraction(1, 4);
     EXPECT_EQ(f, Fraction(3, 8));
 
@@ -113,7 +115,7 @@ TEST (FractionOperators, TestSubtractionAssignmentOperator){
     EXPECT_EQ(f, Fraction(-1, 208));
 }
 
-TEST (FractionOperators, TestSubtractionOperator){
+TEST (FractionOperators, TestBinarySubtractionOperator){
     Fraction f1(4, 5);
     Fraction f2(1, 5);
     EXPECT_EQ(f1 - f2, Fraction(3, 5));
@@ -129,4 +131,17 @@ TEST (FractionOperators, TestSubtractionOperator){
     Fraction f7(5, 7);
     Fraction f8(3, 11);
     EXPECT_EQ(f7 - f8, Fraction(34, 77));
+}
+
+TEST (FractionOperators, TestMultiplicationAssignmentOperator){
+    Fraction f(1, 2);
+
+    f *= Fraction(2, 3);
+    EXPECT_EQ(f, Fraction(1, 3));
+
+    f *= Fraction(7, 8);
+    EXPECT_EQ(f, Fraction(7, 24));
+
+    f *= Fraction(11, 13);
+    EXPECT_EQ(f, Fraction(77, 312));
 }
