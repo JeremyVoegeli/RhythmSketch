@@ -10,6 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #establish core library of .cpp functions (except main.cpp)
 add_library(main_lib
     src/fraction.cpp
+    src/measure.cpp
 )
 
 target_include_directories(main_lib PUBLIC include/)
