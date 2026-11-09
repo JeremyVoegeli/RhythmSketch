@@ -2,7 +2,7 @@
 
 void Measure::addNote(Note note){
     //Check that there is enough space in the measure to hold the new note
-    if (fullness + note.duration > Fraction(1, 1)){
+    if (fullness + note.duration > timeSignature){
         throw std::logic_error("Error: Not enough room in the measure remaining to add this note");
     }
 
