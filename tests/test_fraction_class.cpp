@@ -145,3 +145,17 @@ TEST (FractionOperators, TestMultiplicationAssignmentOperator){
     f *= Fraction(11, 13);
     EXPECT_EQ(f, Fraction(77, 312));
 }
+
+TEST (FractionOperators, TestBinaryMultiplicationOperator){
+    Fraction f1(1, 2);
+    Fraction f2(1, 3);
+    EXPECT_EQ(f1 * f2, Fraction(1, 6));
+
+    Fraction f3(2, 5);
+    Fraction f4(5, 6);
+    EXPECT_EQ(f3 * f4, Fraction(1, 3));
+
+    Fraction f5(3, 11);
+    Fraction f6(7, 20);
+    EXPECT_EQ(f5 * f6, Fraction(21, 220));
+}
