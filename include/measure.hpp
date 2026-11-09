@@ -9,9 +9,7 @@ public:
 
     Measure();
 
-    Measure(Fraction timeSig){
-        timeSignature = timeSig;
-    }
+    Measure(Fraction timeSig);
 
     void addNote(Note note);
 

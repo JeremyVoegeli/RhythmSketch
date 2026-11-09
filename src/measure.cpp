@@ -1,5 +1,11 @@
 #include "measure.hpp"
 
+Measure::Measure() {};
+
+Measure::Measure(Fraction timeSig){
+    timeSignature = timeSig;
+}
+
 void Measure::addNote(Note note){
     //Check that there is enough space in the measure to hold the new note
     if (fullness + note.duration > timeSignature){
