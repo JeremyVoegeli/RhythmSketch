@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(main_lib
     src/fraction.cpp
     src/measure.cpp
+    src/pattern.cpp
 )
 
 target_include_directories(main_lib PUBLIC include/)
