@@ -1,4 +1,12 @@
 #include "measure.hpp"
+#include <cmath>
+
+namespace {
+    bool isPowerOfTwo(int n){
+        double log = std::log2(n);
+        return (std::floor(log) == log);
+    }
+}
 
 Measure::Measure() {};
 
@@ -10,6 +18,14 @@ void Measure::addNote(Note note){
     //Check that there is enough space in the measure to hold the new note
     if (fullness + note.duration > timeSignature){
         throw std::logic_error("Error: Not enough room in the measure remaining to add this note");
+    }
+
+    // ***********************************************************
+    // TEMPORARY - Forces duple meter notes only
+    // ***********************************************************
+
+    if (note.duration.numerator != 1 || !isPowerOfTwo(note.duration.denominator)){
+        throw std::runtime_error("Error: Program does not support notes that are not powers of 2 (1/2, 1/4, 1/8, etc.)");
     }
 
     //update the measure's fullness
