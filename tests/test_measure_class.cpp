@@ -30,3 +30,21 @@ TEST(MeasureTest, TestAddNoteFunction){
 
     ASSERT_THROW(m.addNote(Note(Fraction(1, 8), Sticking::R, NoteType::note)), std::logic_error);
 }
+
+TEST(MeasureTest, TestRemoveNoteFunction){
+    Measure m;
+    m.addNote(Note(Fraction(1, 2), Sticking::R, NoteType::note));
+    m.addNote(Note(Fraction(1, 2), Sticking::L, NoteType::note));
+    EXPECT_EQ(m.notes.size(), 2);
+    EXPECT_EQ(m.fullness, Fraction(1, 1));
+
+    m.removeNote();
+    EXPECT_EQ(m.notes.size(), 1);
+    EXPECT_EQ(m.fullness, Fraction(1, 2));
+
+    m.removeNote();
+    EXPECT_TRUE(m.notes.empty());
+    EXPECT_EQ(m.fullness, Fraction(0, 1));
+
+    ASSERT_THROW(m.removeNote(), std::out_of_range);
+}
