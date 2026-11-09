@@ -7,6 +7,11 @@ public:
     Fraction timeSignature = Fraction(4, 4);
     Fraction fullness = Fraction(0,1);
 
+    Measure();
+
+    Measure(Fraction timeSig){
+        timeSignature = timeSig;
+    }
 
     void addNote(Note note);
 
