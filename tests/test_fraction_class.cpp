@@ -86,23 +86,19 @@ TEST(FractionOperators, TestAdditionAssignmentOperator){
 TEST (FractionOperators, TestBinaryAdditionOperator){
     Fraction f1(1, 5);
     Fraction f2(2, 5);
-    Fraction sum1 = f1 + f2;
-    EXPECT_EQ(sum1, Fraction(3, 5));
+    EXPECT_EQ(f1 + f2, Fraction(3, 5));
 
     Fraction f3(1, 2);
     Fraction f4(1, 5);
-    Fraction sum2 = f3 + f4;
-    EXPECT_EQ(sum2, Fraction(7, 10));
+    EXPECT_EQ(f3 + f4, Fraction(7, 10));
 
     Fraction f5(1, 3);
     Fraction f6(4, 9);
-    Fraction sum3 = f5 + f6;
-    EXPECT_EQ(sum3, Fraction(7, 9));
+    EXPECT_EQ(f5 + f6, Fraction(7, 9));
 
     Fraction f7(4, 11);
     Fraction f8(6, 17);
-    Fraction sum4 = f7 + f8;
-    EXPECT_EQ(sum4, Fraction(134, 187));
+    EXPECT_EQ(f7 + f8, Fraction(134, 187));
 }
 
 TEST (FractionOperators, TestSubtractionAssignmentOperator){
@@ -115,4 +111,22 @@ TEST (FractionOperators, TestSubtractionAssignmentOperator){
 
     f -= Fraction(5, 26);
     EXPECT_EQ(f, Fraction(-1, 208));
+}
+
+TEST (FractionOperators, TestSubtractionOperator){
+    Fraction f1(4, 5);
+    Fraction f2(1, 5);
+    EXPECT_EQ(f1 - f2, Fraction(3, 5));
+
+    Fraction f3(2, 3);
+    Fraction f4(5, 12);
+    EXPECT_EQ (f3 - f4, Fraction(1, 4));
+
+    Fraction f5(5, 8);
+    Fraction f6(1, 2);
+    EXPECT_EQ(f5 - f6, Fraction(1, 8));
+
+    Fraction f7(5, 7);
+    Fraction f8(3, 11);
+    EXPECT_EQ(f7 - f8, Fraction(34, 77));
 }
