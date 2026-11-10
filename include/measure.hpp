@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include "note.hpp"
 
 class Measure{
@@ -11,7 +12,11 @@ public:
 
     Measure(Fraction timeSig);
 
+    friend std::ostream& operator<<(std::ostream& os, Measure m);
+
     void addNote(Note note);
 
     void removeNote();
+
+    void fillMeasure();
 };

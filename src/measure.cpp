@@ -1,5 +1,6 @@
 #include "measure.hpp"
 #include <cmath>
+#include <iostream>
 
 namespace {
     bool isPowerOfTwo(int n){
@@ -12,6 +13,16 @@ Measure::Measure() {};
 
 Measure::Measure(Fraction timeSig){
     timeSignature = timeSig;
+}
+
+std::ostream& operator<<(std::ostream& os, Measure m){
+    os << "Measure " << m.timeSignature << ":\n";
+
+    for (const auto& note : m.notes){
+        os << note << "\n";
+    }
+
+    return os;
 }
 
 void Measure::addNote(Note note){
@@ -49,4 +60,11 @@ void Measure::removeNote() {
 
     //remove the note from the measure's stack of notes
     notes.pop_back();
+}
+
+void Measure::fillMeasure(){
+    while (fullness < timeSignature){
+        Note rest(Fraction(1, fullness.denominator), Sticking::space, NoteType::rest);
+        addNote(rest);
+    }
 }
