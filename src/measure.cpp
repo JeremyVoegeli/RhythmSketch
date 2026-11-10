@@ -68,3 +68,7 @@ void Measure::fillMeasure(){
         addNote(rest);
     }
 }
+
+bool Measure::isFull(){
+    return (fullness == timeSignature);
+}

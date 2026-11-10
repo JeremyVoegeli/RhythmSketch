@@ -20,4 +20,6 @@ public:
     void removeNote();
 
     void fillMeasure();
+
+    bool isFull();
 };
