@@ -84,8 +84,8 @@ bool operator<(const Fraction& lhs, const Fraction& rhs){
     int leastCommonMultiple = std::lcm(lhs.denominator, rhs.denominator);
 
     //Find the numerators of both fractions once multiplied by the LCM
-    int lhsCommonNumerator = lhs.numerator * leastCommonMultiple;
-    int rhsCommonNumerator = rhs.numerator * leastCommonMultiple;
+    int lhsCommonNumerator = lhs.numerator * (leastCommonMultiple / lhs.denominator);
+    int rhsCommonNumerator = rhs.numerator * (leastCommonMultiple / rhs.denominator);
 
     //Compare numerators
     return (lhsCommonNumerator < rhsCommonNumerator);
