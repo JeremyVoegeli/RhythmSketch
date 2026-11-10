@@ -48,3 +48,14 @@ TEST(MeasureTest, TestRemoveNoteFunction){
 
     ASSERT_THROW(m.removeNote(), std::out_of_range);
 }
+
+TEST(MeasureTest, TestIsFullFunction){
+    Measure m;
+    m.addNote(Note(Fraction(1, 4), Sticking::R, NoteType::note));
+    m.addNote(Note(Fraction(1, 4), Sticking::L, NoteType::note));
+    ASSERT_FALSE(m.isFull());
+
+    m.addNote(Note(Fraction(1, 4), Sticking::R, NoteType::note));
+    m.addNote(Note(Fraction(1, 4), Sticking::L, NoteType::note));
+    ASSERT_TRUE(m.isFull());
+}
