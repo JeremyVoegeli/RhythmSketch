@@ -3,6 +3,9 @@
 Pattern::Pattern() {};
 
 void Pattern::addMeasure(Measure measure){
+    //fills measure with rests to complete it
+    measure.fillMeasure();
+    
     measures.push_back(measure);
 }
 

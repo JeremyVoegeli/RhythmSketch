@@ -1,11 +1,16 @@
 #include <iostream>
-#include "fraction.hpp"
+#include "measure.hpp"
 
 int main(){
-    Fraction f(2, 0);
+    Measure m;
+    m.addNote(Note(Fraction(1, 8), Sticking::R, NoteType::note));
+    m.addNote(Note(Fraction(1, 8), Sticking::L, NoteType::note));
 
-    f.simplify();
-    std::cout << f << std::endl;
+    std::cout << m << std::endl;
+
+    m.fillMeasure();
+
+    std::cout << m << std::endl;
 
     return 0;
 }
