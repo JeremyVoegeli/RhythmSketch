@@ -54,4 +54,12 @@ public:
         }
         return os;
     }
+
+    friend bool operator==(Note lhs, Note rhs){
+        return (
+            lhs.duration == rhs.duration &&
+            lhs.sticking == rhs.sticking &&
+            lhs.type == rhs.type
+        );
+    }
 };
