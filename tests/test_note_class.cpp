@@ -20,7 +20,7 @@ TEST(NoteTest, TestConstructor){
     );
 
     EXPECT_EQ(n2.duration, Fraction(1, 8));
-    EXPECT_EQ(n2.sticking, Sticking::space);
+    EXPECT_EQ(n2.sticking, Sticking::none);
     EXPECT_EQ(n2.type, NoteType::rest);
 }
 
