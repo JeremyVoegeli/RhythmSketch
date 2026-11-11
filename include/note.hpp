@@ -5,8 +5,22 @@
 enum class Sticking {
     R,
     L,
-    space
+    none
 };
+
+constexpr std::string to_string(Sticking s){
+    switch (s){
+        case Sticking::R:
+            return "R";
+            break;
+        case Sticking::L:
+            return "L";
+            break;
+        case Sticking::none:
+            return "/";
+            break;
+    }
+}
 
 inline std::ostream& operator<<(std::ostream& os, const Sticking& s){
     switch (s) {
@@ -16,7 +30,7 @@ inline std::ostream& operator<<(std::ostream& os, const Sticking& s){
         case Sticking::L:
             os << "L";
             break;
-        case Sticking::space:
+        case Sticking::none:
             os << " ";
             break;
     }
@@ -41,7 +55,7 @@ public:
         type = t;
 
         if (t == NoteType::rest) {
-            sticking = Sticking::space;
+            sticking = Sticking::none;
         }
     }
 

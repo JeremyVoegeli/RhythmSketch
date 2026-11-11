@@ -64,7 +64,7 @@ void Measure::removeNote() {
 
 void Measure::fillMeasure(){
     while (fullness < timeSignature){
-        Note rest(Fraction(1, fullness.denominator), Sticking::space, NoteType::rest);
+        Note rest(Fraction(1, fullness.denominator), Sticking::none, NoteType::rest);
         addNote(rest);
     }
 }
