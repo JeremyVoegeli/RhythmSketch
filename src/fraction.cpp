@@ -96,7 +96,7 @@ std::ostream& operator<<(std::ostream& os, const Fraction& f){
     return os;
 }
 
-void Fraction::simplify(){
+Fraction Fraction::simplify(){
     int greatestCommonDivisor = std::gcd(numerator, denominator);
     numerator /= greatestCommonDivisor;
     denominator /= greatestCommonDivisor;
@@ -105,4 +105,6 @@ void Fraction::simplify(){
         numerator *= -1;
         denominator *= -1;
     }
+
+    return Fraction(numerator, denominator);
 }
