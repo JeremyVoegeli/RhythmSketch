@@ -1,6 +1,7 @@
 #pragma once
 #include "fraction.hpp"
 #include <iostream>
+#include <cmath>
 
 enum class Sticking {
     R,
@@ -48,6 +49,7 @@ public:
     Fraction duration;
     Sticking sticking;
     NoteType type;
+    int depth;
 
     Note(Fraction d, Sticking s, NoteType t){
         duration = d;
@@ -57,6 +59,8 @@ public:
         if (t == NoteType::rest) {
             sticking = Sticking::none;
         }
+
+        depth = std::log2(d.denominator) - 2;
     }
 
     friend std::ostream& operator<<(std::ostream& os, const Note& n){
