@@ -26,7 +26,7 @@ TEST(MeasureTest, TestAddNoteFunction){
     EXPECT_EQ(m.fullness, Fraction(3, 4));
     EXPECT_EQ(m.notes.size(), 2);
 
-    m.addNote(Note(Fraction(1, 4), Sticking::space, NoteType::rest));
+    m.addNote(Note(Fraction(1, 4), Sticking::none, NoteType::rest));
     EXPECT_EQ(m.fullness, (Fraction(1, 1)));
     EXPECT_EQ(m.notes.size(), 3);
 
@@ -54,7 +54,7 @@ TEST(MeasureTest, TestRemoveNoteFunction){
 TEST(MeasureTest, TestFillMeasureFunction){
     Measure m1;
     m1.fillMeasure();
-    ASSERT_TRUE(std::ranges::contains(m1.notes, Note(Fraction(1, 1), Sticking::space, NoteType::rest)));
+    ASSERT_TRUE(std::ranges::contains(m1.notes, Note(Fraction(1, 1), Sticking::none, NoteType::rest)));
     ASSERT_EQ(m1.fullness, Fraction(1, 1));
     ASSERT_EQ(m1.notes.size(), 1);
 
@@ -62,8 +62,8 @@ TEST(MeasureTest, TestFillMeasureFunction){
     m2.addNote(Note(Fraction(1, 4), Sticking::R, NoteType::note));
     m2.fillMeasure();
 
-    ASSERT_TRUE(std::ranges::contains(m2.notes, Note(Fraction(1, 4), Sticking::space, NoteType::rest)));
-    ASSERT_TRUE(std::ranges::contains(m2.notes, Note(Fraction(1, 2), Sticking::space, NoteType::rest)));
+    ASSERT_TRUE(std::ranges::contains(m2.notes, Note(Fraction(1, 4), Sticking::none, NoteType::rest)));
+    ASSERT_TRUE(std::ranges::contains(m2.notes, Note(Fraction(1, 2), Sticking::none, NoteType::rest)));
     ASSERT_EQ(m2.fullness, Fraction(1, 1));
     ASSERT_EQ(m2.notes.size(), 3);
 
@@ -71,10 +71,10 @@ TEST(MeasureTest, TestFillMeasureFunction){
     m3.addNote(Note(Fraction(1, 16), Sticking::R, NoteType::rest));
     m3.fillMeasure();
 
-    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 16), Sticking::space, NoteType::rest)));
-    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 8), Sticking::space, NoteType::rest)));
-    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 4), Sticking::space, NoteType::rest)));
-    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 2), Sticking::space, NoteType::rest)));
+    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 16), Sticking::none, NoteType::rest)));
+    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 8), Sticking::none, NoteType::rest)));
+    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 4), Sticking::none, NoteType::rest)));
+    ASSERT_TRUE(std::ranges::contains(m3.notes, Note(Fraction(1, 2), Sticking::none, NoteType::rest)));
     ASSERT_EQ(m3.fullness, Fraction(1, 1));
     ASSERT_EQ(m3.notes.size(), 5);
 }
