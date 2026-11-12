@@ -1,7 +1,17 @@
 #include "fraction.hpp"
 
 bool Fraction::operator==(const Fraction& other) const {
-    return (numerator == other.numerator && denominator == other.denominator);
+    int leastCommonMultiple = std::lcm(denominator, other.denominator);
+
+    //find modified this.numerator
+    int thisModifier = leastCommonMultiple / denominator;
+    int thisNumeratorModified = numerator * thisModifier;
+
+    //find modified other.numerator
+    int otherModifier = leastCommonMultiple / other.denominator;
+    int otherNumeratorModified = other.numerator * otherModifier;
+
+    return (thisNumeratorModified == otherNumeratorModified);
 }
 
 Fraction& Fraction::operator+=(const Fraction& other){
