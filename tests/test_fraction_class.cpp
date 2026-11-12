@@ -30,6 +30,21 @@ TEST(FractionTest, NonZeroDenominatorCheck){
     ASSERT_THROW(Fraction f(1, 0), std::invalid_argument);
 }
 
+TEST(FractionOperators, TestBinaryEquivalentOperator){
+    Fraction f1(1, 4);
+    Fraction f2(1, 4);
+    ASSERT_TRUE(f1 == f2);
+
+    f1 = Fraction(2, 8);
+    ASSERT_TRUE(f1 == f2);
+
+    f2 = Fraction(4, 16);
+    ASSERT_TRUE(f1 == f2);
+
+    f1 = Fraction(5, 8);
+    ASSERT_FALSE(f1 == f2);
+}
+
 TEST(FractionOperators, TestAdditionAssignmentOperator){
     Fraction f(1, 4);
 
