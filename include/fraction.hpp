@@ -47,5 +47,5 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
 
     //simplifies the fraction
-    void simplify();
+    Fraction simplify();
 };
