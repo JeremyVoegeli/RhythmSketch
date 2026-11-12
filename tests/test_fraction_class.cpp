@@ -165,7 +165,7 @@ TEST (FractionOperators, TestLessThanOperator){
 
     f1 = Fraction(6, 7);
     f2 = Fraction(4, 17);
-    ASSERT_TRUE(f1 < f2);
+    ASSERT_TRUE(f2 < f1);
 }
 
 TEST(FractionOperators, TestStreamInsertionOperator){
