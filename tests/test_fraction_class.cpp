@@ -30,21 +30,6 @@ TEST(FractionTest, NonZeroDenominatorCheck){
     ASSERT_THROW(Fraction f(1, 0), std::invalid_argument);
 }
 
-TEST(FractionOperators, TestStreamInsertionOperator){
-    std::stringstream ss;
-    Fraction f1(2, 3);
-
-    ss << f1;
-    EXPECT_EQ(ss.str(), "2/3");
-
-    ss.str(""); //clears string stream buffer
-
-    Fraction f2(1, 6);
-
-    ss << f2;
-    EXPECT_EQ(ss.str(), "1/6");
-}
-
 TEST(FractionOperators, TestAdditionAssignmentOperator){
     Fraction f(1, 4);
 
@@ -166,6 +151,21 @@ TEST (FractionOperators, TestLessThanOperator){
     f1 = Fraction(6, 7);
     f2 = Fraction(4, 17);
     ASSERT_TRUE(f1 < f2);
+}
+
+TEST(FractionOperators, TestStreamInsertionOperator){
+    std::stringstream ss;
+    Fraction f1(2, 3);
+
+    ss << f1;
+    EXPECT_EQ(ss.str(), "2/3");
+
+    ss.str(""); //clears string stream buffer
+
+    Fraction f2(1, 6);
+
+    ss << f2;
+    EXPECT_EQ(ss.str(), "1/6");
 }
 
 TEST(FractionFunctions, SimplifyFunction){
