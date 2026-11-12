@@ -159,3 +159,20 @@ TEST (FractionOperators, TestBinaryMultiplicationOperator){
     Fraction f6(7, 20);
     EXPECT_EQ(f5 * f6, Fraction(21, 220));
 }
+
+TEST (FractionOperators, TestGreaterThanOperator){
+    Fraction f1(1, 5);
+    Fraction f2(2, 5);
+    ASSERT_TRUE(f2 > f1);
+
+    f1 = Fraction(6, 10);
+    ASSERT_TRUE(f1 > f2);
+
+    f1 = Fraction(1, 3);
+    f2 = Fraction(5, 6);
+    ASSERT_TRUE(f2 > f1);
+
+    f1 = Fraction(3, 7);
+    f2 = Fraction(10, 13);
+    ASSERT_TRUE(f2 > f1);
+}
