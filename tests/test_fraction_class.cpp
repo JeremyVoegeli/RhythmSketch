@@ -26,32 +26,6 @@ TEST(FractionTest, NegativeNums){
     EXPECT_EQ(f3.denominator, -7);
 }
 
-TEST(FractionTest, SimplifyFunction){
-    Fraction f1(3, 6);
-    f1.simplify();
-
-    EXPECT_EQ(f1.numerator, 1);
-    EXPECT_EQ(f1.denominator, 2);
-
-    Fraction f2(-2, 8);
-    f2.simplify();
-
-    EXPECT_EQ(f2.numerator, -1);
-    EXPECT_EQ(f2.denominator, 4);
-
-    Fraction f3(6, -3);
-    f3.simplify();
-
-    EXPECT_EQ(f3.numerator, 2);
-    EXPECT_EQ(f3.denominator, -1);
-
-    Fraction f4(-8, -6);
-    f4.simplify();
-
-    EXPECT_EQ(f4.numerator, 4);
-    EXPECT_EQ(f4.denominator, 3);
-}
-
 TEST(FractionTest, NonZeroDenominatorCheck){
     ASSERT_THROW(Fraction f(1, 0), std::invalid_argument);
 }
@@ -175,4 +149,47 @@ TEST (FractionOperators, TestGreaterThanOperator){
     f1 = Fraction(3, 7);
     f2 = Fraction(10, 13);
     ASSERT_TRUE(f2 > f1);
+}
+
+TEST (FractionOperators, TestLessThanOperator){
+    Fraction f1(1, 5);
+    Fraction f2(2, 5);
+    ASSERT_TRUE(f1 < f2);
+
+    f1 = Fraction(5, 10);
+    ASSERT_TRUE(f2 < f1);
+
+    f1 = Fraction(2, 5);
+    f2 = Fraction(6, 10);
+    ASSERT_TRUE(f1 < f2);
+
+    f1 = Fraction(6, 7);
+    f2 = Fraction(4, 17);
+    ASSERT_TRUE(f1 < f2);
+}
+
+TEST(FractionFunctions, SimplifyFunction){
+    Fraction f1(3, 6);
+    f1.simplify();
+
+    EXPECT_EQ(f1.numerator, 1);
+    EXPECT_EQ(f1.denominator, 2);
+
+    Fraction f2(-2, 8);
+    f2.simplify();
+
+    EXPECT_EQ(f2.numerator, -1);
+    EXPECT_EQ(f2.denominator, 4);
+
+    Fraction f3(6, -3);
+    f3.simplify();
+
+    EXPECT_EQ(f3.numerator, 2);
+    EXPECT_EQ(f3.denominator, -1);
+
+    Fraction f4(-8, -6);
+    f4.simplify();
+
+    EXPECT_EQ(f4.numerator, 4);
+    EXPECT_EQ(f4.denominator, 3);
 }
