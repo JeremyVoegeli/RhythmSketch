@@ -1,6 +1,6 @@
 #include "renderer.hpp"
 
-void render(Pattern p){
+std::string render(Pattern p){
     std::string output = "";
 
     //iterates through every measure in the pattern
@@ -38,5 +38,5 @@ void render(Pattern p){
         output += " |";
     }
 
-    std::cout << output << std::endl;
+    return output;
 }

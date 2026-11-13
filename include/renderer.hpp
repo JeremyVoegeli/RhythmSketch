@@ -4,4 +4,4 @@
 #include <string>
 #include <cmath>
 
-void render(Pattern p);
+std::string render(Pattern p);

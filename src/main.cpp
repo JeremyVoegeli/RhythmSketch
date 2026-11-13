@@ -20,7 +20,7 @@ int main(){
 
     Pattern p;
     p.addMeasure(m);
-    render(p);
+    std::cout << render(p) << std::endl;
 
     return 0;
 }
