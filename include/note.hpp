@@ -41,7 +41,8 @@ inline std::ostream& operator<<(std::ostream& os, const Sticking& s){
 
 enum class NoteType {
     rest,
-    note
+    note,
+    endOfMeasure
 };
 
 class Note {

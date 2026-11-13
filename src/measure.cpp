@@ -35,7 +35,7 @@ void Measure::addNote(Note note){
     // TEMPORARY - Forces duple meter notes only
     // ***********************************************************
 
-    if (note.duration.numerator != 1 || !isPowerOfTwo(note.duration.denominator)){
+    if (note.duration.numerator > 1 || !isPowerOfTwo(note.duration.denominator)){
         throw std::runtime_error("Error: Program does not support notes that are not powers of 2 (1/2, 1/4, 1/8, etc.)");
     }
 
