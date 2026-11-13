@@ -5,8 +5,8 @@ Measure createMeasure(){
     Measure m;
     m.addNote(Note(Fraction(1, 8), Sticking::R, NoteType::note));
     m.addNote(Note(Fraction(1, 8), Sticking::L, NoteType::note));
-    m.addNote(Note(Fraction(1, 4), Sticking::space, NoteType::rest));
-    m.addNote(Note(Fraction(1, 2), Sticking::space, NoteType::rest));
+    m.addNote(Note(Fraction(1, 4), Sticking::none, NoteType::rest));
+    m.addNote(Note(Fraction(1, 2), Sticking::none, NoteType::rest));
 
     return m;
 }
