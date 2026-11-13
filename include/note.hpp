@@ -85,6 +85,8 @@ public:
     std::string note_to_string() const {
         if (type == NoteType::note){
             return sticking_to_string(sticking);
+        } else if (type == NoteType::endOfMeasure){
+            return "";
         } else {
             return "_";
         }
