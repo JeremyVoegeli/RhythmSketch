@@ -9,7 +9,7 @@ enum class Sticking {
     none
 };
 
-constexpr std::string to_string(Sticking s){
+constexpr std::string sticking_to_string(Sticking s){
     switch (s){
         case Sticking::R:
             return "R";
@@ -80,5 +80,13 @@ public:
             lhs.sticking == rhs.sticking &&
             lhs.type == rhs.type
         );
+    }
+
+    std::string note_to_string(Note n){
+        if (n.type == NoteType::note){
+            return sticking_to_string(n.sticking);
+        } else {
+            return "_";
+        }
     }
 };

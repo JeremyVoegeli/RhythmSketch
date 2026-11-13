@@ -13,10 +13,10 @@ void render(Pattern p){
 
             //base cases for half and whole notes hardcoded
             if (note.duration == Fraction(1, 1)){
-                output += "((" + to_string(note.sticking) + "))";
+                output += "((" + sticking_to_string(note.sticking) + "))";
             }
             else if (note.duration == Fraction(1, 2)) {
-                output += "(" + to_string(note.sticking) + ")";
+                output += "(" + sticking_to_string(note.sticking) + ")";
             }
             else {
                 while(curDepth < note.depth){
@@ -29,11 +29,13 @@ void render(Pattern p){
                     curDepth--;
                 }
                 
-                output += to_string(note.sticking);
+                output += sticking_to_string(note.sticking);
 
-                output += " ";
+                //output += " ";
             }
         }
+
+        output += " |";
     }
 
     std::cout << output << std::endl;
