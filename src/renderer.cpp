@@ -29,7 +29,7 @@ void render(Pattern p){
                     curDepth--;
                 }
                 
-                output += sticking_to_string(note.sticking);
+                output += note.note_to_string();
 
                 //output += " ";
             }

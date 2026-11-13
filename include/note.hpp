@@ -82,9 +82,9 @@ public:
         );
     }
 
-    std::string note_to_string(Note n){
-        if (n.type == NoteType::note){
-            return sticking_to_string(n.sticking);
+    std::string note_to_string() const {
+        if (type == NoteType::note){
+            return sticking_to_string(sticking);
         } else {
             return "_";
         }

@@ -1,3 +1,4 @@
+#pragma once
 #include "pattern.hpp"
 #include <iostream>
 #include <string>
