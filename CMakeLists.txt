@@ -12,6 +12,7 @@ add_library(main_lib
     src/fraction.cpp
     src/measure.cpp
     src/pattern.cpp
+    src/renderer.cpp
 )
 
 target_include_directories(main_lib PUBLIC include/)
