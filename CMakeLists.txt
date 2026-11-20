@@ -20,6 +20,9 @@ target_include_directories(main_lib PUBLIC include/)
 add_executable(main src/main.cpp)
 target_link_libraries(main PRIVATE main_lib)
 
+add_executable(editor src/editor.cpp)
+target_link_libraries(editor PRIVATE main_lib)
+
 # ---------- TESTING SETUP ----------
 option(BUILD_TESTING "build the testing suite" ON)
 
