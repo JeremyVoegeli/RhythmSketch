@@ -67,6 +67,9 @@ void Measure::fillMeasure(){
         Note rest(Fraction(1, fullness.denominator), Sticking::none, NoteType::rest);
         addNote(rest);
     }
+
+    //adds note to measure marking end of measure
+    addNote(Note(Fraction(0, 4), Sticking::none, NoteType::endOfMeasure));
 }
 
 bool Measure::isFull(){

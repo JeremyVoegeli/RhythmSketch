@@ -4,4 +4,6 @@
 #include <string>
 #include <cmath>
 
-std::string render(Pattern p);
+std::string renderPattern(Pattern p);
+
+std::string renderMeasure(Measure m);
